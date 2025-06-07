@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz Dia dos Namorados</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #ffdee9, #fff1eb);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      color: #d1005d;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-top: 100px;
+      animation: pulse 2s infinite;
+    }
+
+    .heart {
+      position: absolute;
+      color: red;
+      font-size: 24px;
+      animation: fall linear infinite, pulse 2s infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.3);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    #ring {
+      font-size: 80px;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+      margin-top: 50px;
+    }
+
+    #message {
+      font-size: 1.5em;
+      margin-top: 30px;
+      display: none;
+      color: #880e4f;
+      animation: pulse 2s infinite;
+    }
+
+    #heart2 {
+      font-size: 50px;
+      display: none;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+      margin-top: 20px;
+    }
+
+    #finalMessage {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #6a1b9a;
+      animation: pulse 2s infinite;
+    }
+
+    #music {
+      display: none;
+      margin-top: 20px;
+    }
+
+    iframe {
+      border-radius: 12px;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      font-size: 1em;
+      color: #ad1457;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>FELIZ DIA DOS NAMORADOS, MEU BEM</h1>
+
+  <div id="ring" onclick="showMessage()">💍</div>
+
+  <div id="message">
+    obrigada por me amar e deixar eu te amar,<br>
+    com você, todos os dias são o dia dos namorados!<br>
+    Somos coisa de alma meu benzinho 💖💖💖
+    <div id="heart2" onclick="showFinal()">❤️‍🩹</div>
+  </div>
+
+  <div id="finalMessage">
+    danilo, meu benzinho, você é o meu bem mais precioso 💗
+    <div id="music">
+      <!-- Música do Luan Santana (YouTube embed) -->
+      <iframe width="300" height="200" 
+      src="https://www.youtube.com/embed/JwNmNoWrz70?autoplay=1" 
+      frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <footer>
+    com muito amor, de zoin 💌
+  </footer>
+
+  <script>
+    // Corações caindo
+    const hearts = ["❤️","💖","💕","💓","💞","💘"];
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 300);
+
+    // Mostrar mensagem ao clicar no anel
+    function showMessage() {
+      document.getElementById("message").style.display = "block";
+      document.getElementById("heart2").style.display = "block";
+    }
+
+    // Mostrar frase final e música
+    function showFinal() {
+      document.getElementById("finalMessage").style.display = "block";
+      document.getElementById("music").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
